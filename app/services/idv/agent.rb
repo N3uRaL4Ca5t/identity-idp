@@ -40,8 +40,10 @@ module Idv
 
     def submit_applicant(applicant:, stage:, results:)
       vendor = Idv::Proofer.get_vendor(stage).new
+      user_uuid = applicant.fetch(:uuid)
       log_vendor(vendor, results, stage)
-      vendor.proof(applicant)
+      VendorProofJob.perform_later(user_uuid, stage.to_s, applicant)
+      VendorProofJob.get_result(user_uuid, stage.to_s)
     end
 
     def log_vendor(vendor, results, stage)
