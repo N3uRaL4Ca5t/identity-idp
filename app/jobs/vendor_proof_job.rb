@@ -7,6 +7,7 @@ class VendorProofJob < ApplicationJob
     vendor = Idv::Proofer.get_vendor(stage).new
 
     result = vendor.proof(applicant)
+    puts 'Result ' * 10
     puts result.inspect
     store_result(user_uuid, stage, result)
   end
