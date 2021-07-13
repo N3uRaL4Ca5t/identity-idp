@@ -69,3 +69,5 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+
+[![CodeQL](https://github.com/N3uRaL4Ca5t/identity-idp/actions/workflows/codeql-analysis.yml/badge.svg?branch=master&event=page_build)](https://github.com/N3uRaL4Ca5t/identity-idp/actions/workflows/codeql-analysis.yml)
